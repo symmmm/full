@@ -1,29 +1,23 @@
 const express = require("express");
+const postRouter = require("./routes/post");
 const app = express();
 
 app.get("/", (req, res) => {
   res.send("hello express");
 });
 
-app.get("/api", (req, res) => {
+app.get("/", (req, res) => {
   res.send("hello api");
 });
 
-app.get("/api/posts", (req, res) => {
+app.get("/posts", (req, res) => {
   res.json([
-    { id: 1, contemt: "hello" },
-    { id: 2, contemt: "hello2" },
-    { id: 3, contemt: "hello3" },
+    { id: 1, content: "hello" },
+    { id: 2, content: "hello2" },
+    { id: 3, content: "hello3" },
   ]);
 });
-
-app.post("/api/post", (req, res) => {
-    res.json('작성완료');
-});
-
-app.delete("/api/post", (req, res) => {
-    res.json('삭제완료');
-});
+app.use('/post', postRouter);
 
 app.listen(3065, () => {
   console.log("서버실행중");
