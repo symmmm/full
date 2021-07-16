@@ -5,9 +5,13 @@ import PostCard from "../components/PostCard";
 import AppLayout from "../components/AppLayout";
 import { LOAD_POSTS_REQUEST } from "../reducers/post";
 
+
 const Home = () => {
   const dispatch = useDispatch();
   const { me } = useSelector((state) => state.user);
+
+
+
   const { mainPosts, hasMorePost, loadPostsLoading } = useSelector(
     (state) => state.post
   );
